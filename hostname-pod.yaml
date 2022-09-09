@@ -1,0 +1,10 @@
+# kubectl apply -f hostname-pod.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostname-pod-example
+spec:
+  containers:
+    - name: hostname
+      image: oguzpastirmaci/hostname

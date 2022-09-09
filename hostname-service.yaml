@@ -1,0 +1,15 @@
+# kubectl apply -f hostname-service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hostname-svc
+  labels:
+    app: hostname
+spec:
+  type: ClusterIP
+  selector:
+    name: hostname
+  ports:
+  - port: 9999
+    protocol: TCP
+    targetPort: 8000

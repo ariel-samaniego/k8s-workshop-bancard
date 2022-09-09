@@ -1,0 +1,24 @@
+# kubectl apply -f hostname-deploy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-example-1
+  labels:
+    name: example-1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: hostname
+  strategy:
+    type: RollingUpdate
+  template:
+      metadata:
+        name: hostname-pod-example
+        labels:
+          name: hostname
+          language: golang
+      spec:
+        containers:
+          - name: hostname
+            image: oguzpastirmaci/hostname
